@@ -1,53 +1,416 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Home</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Your Name</h1>
-            <h2>Your Position</h2>
-            <p>Affiliation</p>
-        </div>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="about" class="container">
-            <h2>About Me</h2>
-            <p>Brief introduction about yourself.</p>
-        </section>
-        <section id="research" class="container">
-            <h2>Research</h2>
-            <p>Details about your research interests and projects.</p>
-        </section>
-        <section id="publications" class="container">
-            <h2>Publications</h2>
-            <ul>
-                <li>Publication 1</li>
-                <li>Publication 2</li>
-                <li>Publication 3</li>
-            </ul>
-        </section>
-        <section id="contact" class="container">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Your Name</p>
-        </div>
-    </footer>
-</body>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style type="text/css">
+        body {
+          background-color: #f5f5f5;
+          font-family: charter;
+        }
+        .container {
+            background-color: #fff;
+            zoom: 1;
+            margin-left: auto;
+            margin-right: auto;
+            vertical-align: middle;
+            text-align: left;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            margin: 20px auto;
+        }
+        .content {
+            margin-bottom: -10px;
+            display: inline-block;
+            display*: inline;
+            width: 100%;
+        }
+        a {
+          color: #03c;
+          text-decoration: none;
+          transition: 0.3s all cubic-bezier(0.42, 0, 0.57, 1.96);
+        }
+
+        a:focus,
+        a:hover{
+          color: rgb(252, 76, 122);
+          border-color: rgb(252, 76, 122);
+        }
+        .publogo { width: 230px; max-height: 190px; margin-right : 15px; float : left; border : 0;}
+        .publication { clear : left; padding-bottom : 0px; }
+        .publication p { height : 100px; padding-top : 5px;}
+        .publication strong a { font-size: 17px; color : #0000A0; }
+        .publication .links { position : relative; top : 15px }
+        .publication .links a { margin-right : 20px; }
+    </style>
+    <title>Shuai Yang's Homepage</title>
+    <!-- <link rel="icon" href="../content/images/icon.png"> -->
+  </head>
+  <body>
+    <div class="container">
+        <table width="100%" align="center" border="0">
+<tr>
+    <td width="60%" valign="middle">
+        <h1 style="margin-top:18px;margin-bottom:36px; color:rgb(59, 103, 236)">Shuai Yang</h1>
+        <p style="font-size:18px; color:rgb(0, 0, 0)">
+	        <b>Ph.D. student</b> <br />
+            Artificial Intelligence Thrust, Information Hub  <br />
+	        The Hong Kong Univerisity of Science and Technology (Guangzhou)
+            <br /><br />
+            Email: <br /> shuaiyang5000 [at] gmail [dot] com  <br /> syang252 [at] connect [dot] hkust-gz [dot] edu [dot] cn
+        </p>
+        <p>
+            <a href="https://scholar.google.com/citations?user=zBHAeuUAAAAJ&hl=en">[Google Scholar]</a> &nbsp;
+            <a href="https://github.com/AndysonYs">[GitHub]</a> &nbsp;
+        </p>
+    </td>
+    <td width="40%" align="center">
+        <img src="images/myfigure.jpg" width="70%" />
+    </td>
+</tr>
+</table>
+
+<h2 id="about-me" style="color:rgb(59, 103, 236)">Biography</h2>
+<hr style="margin-top:-16px;margin-bottom:10px;" />
+
+<p>Hello! I am currently a PhD student (since 2022) at the AI Thrust, The Hong Kong University of Science and Technology (Guangzhou), under the guidance of <a href="https://www.yingcong.me/">Dr. Yingcong Chen</a>.
+    My research interests are in deep learning and computer vision, with a particular focus on efficient deep learning and generative models.
+    I have also had the privilege of working closely with <a href="https://yukangchen.com/">Dr. Yukang Chen</a>.
+</p>
+
+<p>Previously, I earned my Bachelor's degree from the School of Computer Science and Engineering at Beihang University (BUAA).</p>
+
+
+<!-- <p style="color:rgb(247, 13, 29)"><strong><i>(I am looking for researcher or postdoc positions in 2024 fall! Reach out to me if you’re intersted!)</i></strong></p> -->
+
+<!--<h2 id="news" style="color:rgb(59, 103, 236)">News</h2>-->
+<!--<hr style="margin-top:-16px;margin-bottom:10px;" />-->
+
+<!--<ul>-->
+<!--  <li>[2024/07] V-IRL was accepted by ECCV 2024</li>-->
+<!--  <li>[2024/05] Lowis3D was accepted by T-PAMI</li>-->
+<!--  <li>[2024/02] RegionPLC was accepted by CVPR 2024.</li>-->
+<!--  <li>[2023/02] PLA was accepted by CVPR 2023.</li>-->
+<!--  <li>[2022/09] ST3D++ was accepted by T-PAMI.</li>-->
+<!--  <li>[2022/09] SparseKD was accepted by NeurIPS 2022.</li>-->
+<!--  <li>[2023/07] DODA was accepted by ECCV 2022.</li>-->
+<!--</ul>-->
+
+<script type="text/javascript">
+    function hideshow(which){
+    if (!document.getElementById)
+        return
+    if (which.style.display=="block")
+        which.style.display="none"
+    else
+        which.style.display="block"
+    }
+</script>
+
+
+<!--<h2 id="codebase" style="color:rgb(59, 103, 236)">Codebase</h2>-->
+<!--<hr style="margin-top:-16px;margin-bottom:10px;" />-->
+
+<!--<table class="">-->
+<!--<tr>-->
+<!--    <td width="30%" valign="top">-->
+<!--        <img src="content/images/pcdet_min.png" width="96%" height="100" />-->
+<!--    </td>-->
+<!--    <td width="70%" valign="top">-->
+<!--        <div style="margin-top:0px;margin-bottom:0px;">-->
+<!--        <a href="https://github.com/open-mmlab/OpenPCDet" style="">-->
+<!--            OpenPCDet: An Open-source Toolbox for 3D Object Detection from Point Cloud-->
+<!--        </a>-->
+<!--        <br>-->
+<!--        <br />-->
+<!--        <font color="#000000">OpenPCDet Development Team</font> <strong style="color:rgb(247, 13, 29)">(Core developer)</strong>-->
+<!--        <br />-->
+<!--        <font style="font-size:15px;"><em>-->
+<!--      &lt;!&ndash;       arXiv:1912.13192, Technical Report, 2019-->
+<!--            </em>  &ndash;&gt;-->
+<!--            June 2020-->
+<!--            </em>-->
+<!--        </font>-->
+<!--        <br>-->
+<!--        <br />-->
+<!--        <a href="https://github.com/open-mmlab/OpenPCDet" style="">[CODE]</a> &nbsp;-->
+<!--            <a href="javascript:hideshow(document.getElementById('OpenPCDet'))"> [Bibtex] </a> &nbsp;-->
+<!--            <a href="https://github.com/open-mmlab/OpenPCDet"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/open-mmlab/OpenPCDet?style=social" /> </a>-->
+<!--        <br />-->
+<!--        </div>-->
+<!--    </td>-->
+<!--</tr>-->
+<!--</table>-->
+<!-- <pre><p id="OpenPCDet" style="font:18px; display:none">
+@inproceedings{shi2020pcdet,
+  title={OpenPCDet: An Open-source Toolbox for 3D Object Detection from Point Cloud},
+  author={Shi, Shaoshuai and Guo, Chaoxu and Li, Hongsheng},
+  Journal ={https://github.com/open-mmlab/OpenPCDet},
+  year={2020}
+}
+</p></pre> -->
+<!--<pre><p id="OpenPCDet" style="font:18px; display:none">-->
+<!--@misc{openpcdet2020,-->
+<!--    title={OpenPCDet: An Open-source Toolbox for 3D Object Detection from Point Clouds},-->
+<!--    author={OpenPCDet Development Team},-->
+<!--    howpublished = {\url{https://github.com/open-mmlab/OpenPCDet}},-->
+<!--    year={2020}-->
+<!--}-->
+<!--</p></pre>-->
+
+
+
+<h2 id="publications" style="color:rgb(59, 103, 236)">Publications <a href="https://scholar.google.com/citations?user=zBHAeuUAAAAJ&hl=en">[Google Scholar]</a></h2>
+<hr style="margin-top:-16px;margin-bottom:10px;" />
+
+<p>*: Equal Contribution</p>
+
+<!-- **Selected Preprints:** -->
+
+<!-- <ul>
+
+</ul> -->
+
+<!-- **2024:** -->
+<div class="publication">
+  <img src="images/seed_story_teaser.jpg" class="publogo" style="width: 30%;">
+  <p>
+      <strong>
+          <a href="https://arxiv.org/abs/2407.08683"><i>SEED-Story</i>: Multimodal Long Story Generation with Large Language Model
+          </a>
+      </strong>
+      <br>
+      <strong>Shuai Yang</strong>, Yuying Ge, Yang Li, Yukang Chen, Yixiao Ge, Ying Shan, Yingcong Chen.
+      <br>
+      <br>
+      <em>arxiv preprint.</em>
+      <br>
+      <span class="links">
+          <a href="https://arxiv.org/abs/2407.08683">[Paper]</a>
+          <a href="https://huggingface.co/TencentARC/SEED-Story">[Model]</a>
+          <a href="https://huggingface.co/datasets/TencentARC/StoryStream">[Data]</a>
+          <a href="https://github.com/TencentARC/SEED-Story">[Code]</a><a href="https://github.com/TencentARC/SEED-Story"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/TencentARC/SEED-Story?style=social" /> </a>
+      </span>
+  </p>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<!-- **2024:** -->
+<div class="publication">
+  <img src="images/defect_spectrum_teaser.png" class="publogo">
+  <p>
+      <strong>
+          <a href="https://arxiv.org/abs/2310.17316"><i>Defect Spectrum</i>: A Granular Look of Large-Scale Defect Datasets with Rich Semantics
+          </a>
+      </strong>
+      <br>
+      <b>Shuai Yang*</b>, Zhifei Chen*, Pengguang Chen, Xi Fang, Shu Liu, Yingcong Chen.
+      <br>
+      <br>
+      <em>European Conference on Computer Vision (ECCV), 2024.</em>
+      <br>
+      <span class="links">
+          <a href="https://arxiv.org/abs/2310.17316">[Paper]</a>
+          <a href="https://envision-research.github.io/Defect_Spectrum/">[Project Page]</a>
+          <a href="https://huggingface.co/datasets/DefectSpectrum/Defect_Spectrum">[Data]</a>
+          <a href="https://github.com/EnVision-Research/Defect_Spectrum">[CODE]</a><a href="https://github.com/EnVision-Research/Defect_Spectrum"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/EnVision-Research/Defect_Spectrum?style=social" /> </a>
+      </span>
+  </p>
+</div>
+<br>
+<br>
+<br>
+
+<div class="publication">
+  <img src="images/lora_sparse_teaser.png" class="publogo">
+  <p>
+      <strong>
+          <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Song_Low-Rank_Approximation_for_Sparse_Attention_in_Multi-Modal_LLMs_CVPR_2024_paper.pdf">Low-Rank Approximation for Sparse Attention in Multi-Modal LLMs
+          </a>
+      </strong>
+      <br>
+      Lin Song, Yukang Chen, <b>Shuai Yang</b>, Xiaohan Ding, Yixiao Ge, Yingcong Chen, Ying Shan.
+      <br>
+      <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2024.</em>
+      <br>
+      <span class="links">
+          <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Song_Low-Rank_Approximation_for_Sparse_Attention_in_Multi-Modal_LLMs_CVPR_2024_paper.pdf">[Paper]</a>
+      </span>
+  </p>
+</div>
+<br>
+<br>
+<br>
+
+<!-- **2024:** -->
+<div class="publication">
+  <img src="images/ddsm_teaser.png" class="publogo">
+  <p>
+      <strong>
+          <a href="https://arxiv.org/abs/2310.03337">Denoising Diffusion Step-aware Models
+          </a>
+      </strong>
+      <br>
+      <b>Shuai Yang</b>, Yukang Chen, Luozhou Wang, Shu Liu, Yingcong Chen.
+      <br>
+      <br>
+      <em>International Conference on Learning Representations (ICLR) 2024. </em>
+      <br>
+      <span class="links">
+          <a href="https://arxiv.org/abs/2310.03337">[Paper]</a>
+          <a href="https://github.com/EnVision-Research/DDSM">[CODE]</a><a href="https://github.com/EnVision-Research/DDSM"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/EnVision-Research/DDSM?style=social" /> </a>
+      </span>
+  </p>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="publication">
+  <img src="images/sdd_teaser.png" class="publogo">
+  <p>
+      <strong>
+          <a href="https://arxiv.org/abs/2307.08448"><i>Not All Steps are Created Equal</i>: Selective Diffusion Distillation for Image Manipulation </a>
+      </strong>
+      <br>
+      Luozhou Wang*, <b>Shuai Yang*</b>, Shu Liu, Yingcong Chen
+      <br>
+      <br>
+      <em>IEEE/CVF International Conference on Computer Vision (ICCV), 2023</em>
+      <br>
+      <span class="links">
+          <a href="https://arxiv.org/abs/2307.08448">[Paper]</a>
+          <a href="https://github.com/EnVision-Research/Selective-Diffusion-Distillation">[CODE]</a><a href="https://github.com/EnVision-Research/Selective-Diffusion-Distillation"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/EnVision-Research/Selective-Diffusion-Distillation?style=social" /> </a>
+      </span>
+  </p>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<h2 id="experience" style="color:rgb(59, 103, 236)">Experience</h2>
+<hr style="margin-top:-16px;margin-bottom:10px;" />
+
+<ul style="font-size: 14px">
+<!--  <li style="margin-bottom: 10px">-->
+<!--    <span><strong>Brown University</strong></span>-->
+<!--    <div style="float: right;">Aug. 2020 - Nov. 2020</div>-->
+<!--    <br clear="all">-->
+<!--    <span>M.Sc. Program in Computer Science.</span>-->
+<!--  </li>-->
+
+  <li style="margin-bottom: 10px">
+    <span><strong>ARC Lab, Tencent PCG</strong></span>
+    <div style="float: right;">Nov 2023 - Jul 2024</div>
+    <br clear="all">
+    <span>Research intern at SEED-Group, working on multimodal LLM</a></span>
+  </li>
+
+  <li style="margin-bottom: 10px">
+    <span><strong>Smartmore</strong></span>
+    <div style="float: right;">Nov 2020 - Aug 2022</div>
+    <br clear="all">
+    <span>Full-time computer vision engineer working on tool-chains</span>
+  </li>
+
+  <li style="margin-bottom: 10px">
+    <span><strong>Sensetime</strong></span>
+    <div style="float: right;">Dec 2019 - Jun 2020</div>
+    <br clear="all">
+    <span>Research intern working on neural architecture search (NAS)</a></span>
+  </li>
+
+  <li style="margin-bottom: 10px">
+    <span><strong>University of California, Los Angeles</strong></span>
+    <div style="float: right;">Sep 2019 - Oct 2019</div>
+    <br clear="all">
+    <span>Research Assistant at AI in Imaging and Neuroscience Lab</a></span>
+  </li>
+
+  <li style="margin-bottom: 10px">
+    <span><strong>Tsinghua University</strong></span>
+    <div style="float: right;">Sep 2018 - Jun 2019</div>
+    <br clear="all">
+    <span>Research Assistant in School of Software</a></span>
+  </li>
+</ul>
+
+
+
+<!-- * Bachelor, Aug 2013 - July 2017, Computer Science and Technology, Harbin Institute Technology. -->
+
+<h2 id="honors--awards" style="color:rgb(59, 103, 236)">Honors &amp; Awards</h2>
+<hr style="margin-top:-16px;margin-bottom:10px;" />
+
+<table style="border-spacing:2px" width="100%">
+    <tbody>
+    <tr>
+        <td>Postgraduate Scholarship, HKUST(GZ)</td>
+        <td style="text-align: right">2022 - 2026</td>
+    </tr>
+    <tr>
+        <td><b>1st place</b> on The Third Workshop on Neural Architecture Search, CVPR2022</td>
+        <td style="text-align: right">2022</td>
+    </tr>
+    <tr>
+        <td>Distinguished Graduate, School of Computer Science and Engineering, BUAA</td>
+        <td style="text-align: right">2020</td>
+    </tr>
+    <tr>
+        <td>Undergraduate Research Scholarship, BUAA</td>
+        <td style="text-align: right">2019</td>
+    </tr>
+
+</tbody></table>
+
+<!-- ###################### -->
+
+<h2 id="Academic_services" style="color:rgb(59, 103, 236)">Academic Services</h2>
+<hr style="margin-top:-16px;margin-bottom:10px;" />
+Conference Reviewer:
+<ul>
+  <li>NeurIPS: 24</li>
+  <li>ECCV: 24</li>
+  <li>ICCV: 23</li>
+</ul>
+
+<h2 id="Teaching" style="color:rgb(59, 103, 236)">Teaching</h2>
+<hr style="margin-top:-16px;margin-bottom:10px;" />
+<table id="Teaching" border="0" width="100%">
+	<tbody>
+		<tr>
+			<td>AIAA5023 Introduction to Computer Vision, HKUST(GZ)</td><td></td><td style="text-align: right">2023-2024</td>
+		</tr>
+		<tr>
+			<td>AIAA5045 Medical Imaging, HKUST(GZ)</td><td></td><td style="text-align: right">2023-2024</td>
+		</tr>
+		<tr>
+			<td>Principles of Computer Composition, BUAA</td><td></td><td style="text-align: right">2018-2019</td>
+		</tr>
+    	<tr>
+			<td>C Programing, BUAA</td><td></td><td style="text-align: right">2017-2018</td>
+		</tr>
+	</tbody>
+</table>
+
+<p align=right>
+	<a class="pull-right" href="#">
+	<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=zPFGAwps3dHeHg_L_f7k-PGV37THUtOVbgXT6ZedWOs&cl=ffffff&w=a"></script></center>
+	</a>
+</p>
+
+<p><center><font>
+        <br>&copy; Shuai Yang | Last updated: Jul. 2024</font></center>
+</p>
+
+
+    </div>
+  </body>
 </html>
