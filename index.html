@@ -23,7 +23,6 @@
         .content {
             margin-bottom: -10px;
             display: inline-block;
-            display*: inline;
             width: 100%;
         }
         a {
@@ -37,8 +36,8 @@
           color: rgb(252, 76, 122);
           border-color: rgb(252, 76, 122);
         }
-        .publogo { width: 230px; max-height: 190px; margin-right : 15px; float : left; border : 0;}
-        .publication { clear : left; padding-bottom : 0px; }
+        .publogo { width: 360px; height: 200px; object-fit: scale-down; object-position: center; margin-right : 15px; float : left; border : 0;}
+        .publication { clear : left; padding-bottom : 0px; margin-bottom : 100px; }
         .publication p { height : 100px; padding-top : 5px;}
         .publication strong a { font-size: 17px; color : #0000A0; }
         .publication .links { position : relative; top : 15px }
@@ -82,20 +81,6 @@
 <p>Previously, I earned my Bachelor's degree from the School of Computer Science and Engineering at Beihang University (BUAA).</p>
 
 
-<!-- <p style="color:rgb(247, 13, 29)"><strong><i>(I am looking for researcher or postdoc positions in 2024 fall! Reach out to me if you’re intersted!)</i></strong></p> -->
-
-<!--<h2 id="news" style="color:rgb(59, 103, 236)">News</h2>-->
-<!--<hr style="margin-top:-16px;margin-bottom:10px;" />-->
-
-<!--<ul>-->
-<!--  <li>[2024/07] V-IRL was accepted by ECCV 2024</li>-->
-<!--  <li>[2024/05] Lowis3D was accepted by T-PAMI</li>-->
-<!--  <li>[2024/02] RegionPLC was accepted by CVPR 2024.</li>-->
-<!--  <li>[2023/02] PLA was accepted by CVPR 2023.</li>-->
-<!--  <li>[2022/09] ST3D++ was accepted by T-PAMI.</li>-->
-<!--  <li>[2022/09] SparseKD was accepted by NeurIPS 2022.</li>-->
-<!--  <li>[2023/07] DODA was accepted by ECCV 2022.</li>-->
-<!--</ul>-->
 
 <script type="text/javascript">
     function hideshow(which){
@@ -107,57 +92,6 @@
         which.style.display="block"
     }
 </script>
-
-
-<!--<h2 id="codebase" style="color:rgb(59, 103, 236)">Codebase</h2>-->
-<!--<hr style="margin-top:-16px;margin-bottom:10px;" />-->
-
-<!--<table class="">-->
-<!--<tr>-->
-<!--    <td width="30%" valign="top">-->
-<!--        <img src="content/images/pcdet_min.png" width="96%" height="100" />-->
-<!--    </td>-->
-<!--    <td width="70%" valign="top">-->
-<!--        <div style="margin-top:0px;margin-bottom:0px;">-->
-<!--        <a href="https://github.com/open-mmlab/OpenPCDet" style="">-->
-<!--            OpenPCDet: An Open-source Toolbox for 3D Object Detection from Point Cloud-->
-<!--        </a>-->
-<!--        <br>-->
-<!--        <br />-->
-<!--        <font color="#000000">OpenPCDet Development Team</font> <strong style="color:rgb(247, 13, 29)">(Core developer)</strong>-->
-<!--        <br />-->
-<!--        <font style="font-size:15px;"><em>-->
-<!--      &lt;!&ndash;       arXiv:1912.13192, Technical Report, 2019-->
-<!--            </em>  &ndash;&gt;-->
-<!--            June 2020-->
-<!--            </em>-->
-<!--        </font>-->
-<!--        <br>-->
-<!--        <br />-->
-<!--        <a href="https://github.com/open-mmlab/OpenPCDet" style="">[CODE]</a> &nbsp;-->
-<!--            <a href="javascript:hideshow(document.getElementById('OpenPCDet'))"> [Bibtex] </a> &nbsp;-->
-<!--            <a href="https://github.com/open-mmlab/OpenPCDet"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/open-mmlab/OpenPCDet?style=social" /> </a>-->
-<!--        <br />-->
-<!--        </div>-->
-<!--    </td>-->
-<!--</tr>-->
-<!--</table>-->
-<!-- <pre><p id="OpenPCDet" style="font:18px; display:none">
-@inproceedings{shi2020pcdet,
-  title={OpenPCDet: An Open-source Toolbox for 3D Object Detection from Point Cloud},
-  author={Shi, Shaoshuai and Guo, Chaoxu and Li, Hongsheng},
-  Journal ={https://github.com/open-mmlab/OpenPCDet},
-  year={2020}
-}
-</p></pre> -->
-<!--<pre><p id="OpenPCDet" style="font:18px; display:none">-->
-<!--@misc{openpcdet2020,-->
-<!--    title={OpenPCDet: An Open-source Toolbox for 3D Object Detection from Point Clouds},-->
-<!--    author={OpenPCDet Development Team},-->
-<!--    howpublished = {\url{https://github.com/open-mmlab/OpenPCDet}},-->
-<!--    year={2020}-->
-<!--}-->
-<!--</p></pre>-->
 
 
 
@@ -174,7 +108,76 @@
 
 <!-- **2025:** -->
 <div class="publication">
-  <img src="images/long-rl-logo.png" class="publogo" style="width: 30%;">
+  <img src="images/LongLive-logo.png" class="publogo">
+  <p>
+      <strong>
+          <a href="https://github.com/NVlabs/LongLive">LongLive: Real-time Interactive Long Video Generation
+          </a>
+      </strong>
+      <br>
+      arXiv preprint, 2025
+      <br>
+      <strong>Shuai Yang</strong>, Wei Huang, Ruihang Chu, Yicheng Xiao, Yuyang Zhao, Xianbang Wang, Muyang Li, Enze Xie, Yingcong Chen, Yao Lu, Song Han, Yukang Chen.
+      <br>
+      <br>
+      <em>Huggingface Daily Paper Top1, Huggingface Weekly Paper Top2, Huggingface Monthly Paper Top8</em>
+      <br>
+      <span class="links">
+          <a href="https://arxiv.org/abs/2509.22622">[Paper]</a>
+          <a href="https://nvlabs.github.io/LongLive">[Page]</a>
+          <a href="https://huggingface.co/Efficient-Large-Model/LongLive-1.3B">[Model]</a>
+          <a href="https://github.com/NVlabs/LongLive">[Code]</a><a href="https://github.com/NVlabs/LongLive"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/NVlabs/LongLive?style=social" /> </a>
+      </span>
+  </p>
+</div>
+<br>
+
+<div class="publication">
+  <img src="images/QeRL-logo.png" class="publogo">
+  <p>
+      <strong>
+          <a href="https://github.com/NVlabs/QeRL">QeRL: Beyond Efficiency -- Quantization-enhanced Reinforcement Learning for LLMs
+          </a>
+      </strong>
+      <br>
+      arXiv preprint, 2025
+      <br>
+      Wei Huang, Yi Ge, <strong>Shuai Yang</strong>, Yicheng Xiao, Huizi Mao, Yujun Lin, Hanrong Ye, Sifei Liu, Ka Chun Cheung, Hongxu Yin, Yao Lu, Xiaojuan Qi, Song Han, Yukang Chen
+      <br>
+      <span class="links">
+          <a href="https://arxiv.org/abs/2510.11696">[Paper]</a>
+          <a href="https://github.com/NVlabs/QeRL">[Code]</a><a href="https://github.com/NVlabs/QeRL"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/NVlabs/QeRL?style=social" /> </a>
+      </span>
+  </p>
+</div>
+<br>
+
+<div class="publication">
+  <img src="images/sana-video-logo.jpg" class="publogo">
+  <p>
+      <strong>
+          <a href="https://nvlabs.github.io/Sana/Video/">SANA-Video: Efficient Video Generation with Block Linear Diffusion Transformer
+          </a>
+      </strong>
+      <br>
+      arXiv preprint, 2025
+      <br>
+      Junsong Chen, Yuyang Zhao, Jincheng Yu, Ruihang Chu, Junyu Chen, <strong>Shuai Yang</strong>, Xianbang Wang, Yicheng Pan, Daquan Zhou, Huan Ling, Haozhe Liu, Hongwei Yi, Hao Zhang, Muyang Li, Yukang Chen, Han Cai, Sanja Fidler, Ping Luo, Song Han, Enze Xie.      <br>
+      <span class="links">
+          <a href="https://www.arxiv.org/pdf/2509.24695">[Paper]</a>
+          <a href="https://nvlabs.github.io/Sana/Video/">[Page]</a>
+          <a href="https://github.com/NVlabs/Sana">[Code]</a><a href="https://github.com/NVlabs/Sana"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/NVlabs/Sana?style=social" /> </a>
+      </span>
+  </p>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="publication">
+  <img src="images/long-rl-logo.png" class="publogo">
   <p>
       <strong>
           <a href="https://github.com/NVlabs/Long-RL">Code of <i>Long-RL</i>: Scaling RL to Long Sequences
@@ -191,11 +194,13 @@
   </p>
 </div>
 <br>
+<br>
+
 
 
 <!-- **2024:** -->
 <div class="publication">
-  <img src="images/seed_story_teaser.jpg" class="publogo" style="width: 30%;">
+  <img src="images/seed_story_teaser.jpg" class="publogo">
   <p>
       <strong>
           <a href="https://arxiv.org/abs/2407.08683"><i>SEED-Story</i>: Multimodal Long Story Generation with Large Language Model
@@ -224,8 +229,7 @@
 <br>
 <br>
 <br>
-<br>
-<br>
+
 
 <!-- **2024:** -->
 <div class="publication">
@@ -243,13 +247,12 @@
       <br>
       <span class="links">
           <a href="https://arxiv.org/abs/2310.17316">[Paper]</a>
-          <a href="https://envision-research.github.io/Defect_Spectrum/">[Project Page]</a>
+          <a href="https://envision-research.github.io/Defect_Spectrum/">[Page]</a>
           <a href="https://huggingface.co/datasets/DefectSpectrum/Defect_Spectrum">[Data]</a>
           <a href="https://github.com/EnVision-Research/Defect_Spectrum">[Code]</a><a href="https://github.com/EnVision-Research/Defect_Spectrum"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/EnVision-Research/Defect_Spectrum?style=social" /> </a>
       </span>
   </p>
 </div>
-<br>
 <br>
 <br>
 <br>
@@ -298,7 +301,6 @@
 <br>
 <br>
 <br>
-<br>
 
 
 <div class="publication">
@@ -319,7 +321,6 @@
       </span>
   </p>
 </div>
-<br>
 <br>
 <br>
 <br>
@@ -455,7 +456,7 @@ Conference Reviewer:
 </p>
 
 <p><center><font>
-        <br>&copy; Shuai Yang | Last updated: Aug. 2025</font></center>
+        <br>&copy; Shuai Yang | Last updated: Oct. 2025</font></center>
 </p>
 
 
