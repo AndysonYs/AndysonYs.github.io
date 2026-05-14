@@ -1,459 +1,897 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <style type="text/css">
-        body {
-          background-color: #f5f5f5;
-          font-family: charter;
-        }
-        .container {
-            background-color: #fff;
-            zoom: 1;
-            margin-left: auto;
-            margin-right: auto;
-            vertical-align: middle;
-            text-align: left;
-            width: 100%;
-            max-width: 800px;
-            padding: 20px;
-            margin: 20px auto;
-        }
-        .content {
-            margin-bottom: -10px;
-            display: inline-block;
-            width: 100%;
-        }
-        a {
-          color: #03c;
-          text-decoration: none;
-          transition: 0.3s all cubic-bezier(0.42, 0, 0.57, 1.96);
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Shuai Yang's homepage: research, publications, experience, teaching, and academic service.">
+    <title>Shuai Yang's Homepage</title>
+    <style>
+      :root {
+        --bg: #f6f8fc;
+        --surface: #ffffff;
+        --surface-soft: #f8fafc;
+        --text: #132033;
+        --muted: #64748b;
+        --line: #e2e8f0;
+        --accent: #2563eb;
+        --accent-strong: #1d4ed8;
+        --accent-soft: #dbeafe;
+        --teal: #0f766e;
+        --rose: #e11d48;
+        --shadow: 0 18px 45px rgba(15, 23, 42, 0.09);
+        --radius: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(180deg, #eef4ff 0%, var(--bg) 320px, #ffffff 100%);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(37, 99, 235, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(37, 99, 235, 0.045) 1px, transparent 1px);
+        background-size: 56px 56px;
+        mask-image: linear-gradient(180deg, #000 0%, transparent 42%);
+      }
+
+      a {
+        color: var(--accent-strong);
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:focus {
+        color: var(--rose);
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .site-nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid rgba(226, 232, 240, 0.78);
+        background: rgba(255, 255, 255, 0.86);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav-inner {
+        width: min(1180px, calc(100% - 36px));
+        margin: 0 auto;
+        min-height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 22px;
+      }
+
+      .brand {
+        font-weight: 800;
+        color: var(--text);
+        letter-spacing: 0;
+        white-space: nowrap;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        font-size: 14px;
+        font-weight: 650;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus {
+        color: var(--accent-strong);
+      }
+
+      .page {
+        position: relative;
+        width: min(1180px, calc(100% - 36px));
+        margin: 48px auto 56px;
+        display: grid;
+        grid-template-columns: 296px minmax(0, 1fr);
+        gap: 44px;
+      }
+
+      .sidebar {
+        align-self: start;
+        position: sticky;
+        top: 92px;
+      }
+
+      .profile-card {
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(226, 232, 240, 0.88);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .portrait-wrap {
+        padding: 16px 16px 0;
+      }
+
+      .portrait {
+        width: 100%;
+        aspect-ratio: 1 / 1.05;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 6px;
+      }
+
+      .profile-body {
+        padding: 22px 22px 24px;
+      }
+
+      .profile-body h1 {
+        margin: 0;
+        color: var(--text);
+        font-size: 30px;
+        line-height: 1.1;
+        letter-spacing: 0;
+      }
+
+      .role {
+        margin: 10px 0 16px;
+        color: var(--accent-strong);
+        font-size: 15px;
+        font-weight: 750;
+      }
+
+      .affiliation,
+      .email-list {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .email-list {
+        margin-top: 14px;
+      }
+
+      .contact-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .pill-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        padding: 5px 11px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--surface-soft);
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .pill-link:hover,
+      .pill-link:focus {
+        border-color: rgba(37, 99, 235, 0.45);
+        background: var(--accent-soft);
+        color: var(--accent-strong);
+      }
+
+      main {
+        min-width: 0;
+      }
+
+      .section {
+        padding: 26px 0;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 18px;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 12px;
+      }
+
+      .section h2 {
+        margin: 0;
+        color: var(--text);
+        font-size: 24px;
+        line-height: 1.2;
+        letter-spacing: 0;
+      }
+
+      .section-note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .copy-block p {
+        margin: 0 0 14px;
+      }
+
+      .paper-list {
+        display: grid;
+        gap: 18px;
+      }
+
+      .paper-card {
+        display: grid;
+        grid-template-columns: minmax(210px, 270px) minmax(0, 1fr);
+        gap: 22px;
+        align-items: stretch;
+        padding: 16px;
+        background: var(--surface);
+        border: 1px solid rgba(226, 232, 240, 0.9);
+        border-radius: var(--radius);
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      }
+
+      .paper-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(37, 99, 235, 0.24);
+        box-shadow: 0 18px 38px rgba(15, 23, 42, 0.1);
+      }
+
+      .paper-thumb {
+        width: 100%;
+        height: 100%;
+        min-height: 154px;
+        object-fit: contain;
+        object-position: center;
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        background: linear-gradient(135deg, #f8fafc, #eef2ff);
+      }
+
+      .paper-title {
+        margin: 0 0 6px;
+        font-size: 18px;
+        line-height: 1.35;
+      }
+
+      .paper-title a {
+        color: #0f172a;
+      }
+
+      .paper-title a:hover,
+      .paper-title a:focus {
+        color: var(--accent-strong);
+      }
+
+      .venue {
+        display: inline-flex;
+        align-items: center;
+        min-height: 26px;
+        margin: 0 0 8px;
+        padding: 3px 9px;
+        border-radius: 999px;
+        background: #ecfdf5;
+        color: #047857;
+        font-size: 13px;
+        font-weight: 750;
+      }
+
+      .authors,
+      .highlight {
+        margin: 0 0 8px;
+        color: #475569;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .highlight {
+        color: #8a4b10;
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 13px;
+      }
+
+      .links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 4px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--surface-soft);
+        color: var(--accent-strong);
+        font-size: 13px;
+        font-weight: 750;
+      }
+
+      .links a:hover,
+      .links a:focus {
+        border-color: rgba(225, 29, 72, 0.45);
+        background: #fff1f2;
+        color: var(--rose);
+      }
+
+      .links a.star-link {
+        padding: 0;
+        border: 0;
+        background: transparent;
+      }
+
+      .links a.star-link:hover,
+      .links a.star-link:focus {
+        background: transparent;
+      }
+
+      .star-link img {
+        height: 20px;
+        width: auto;
+      }
+
+      .timeline,
+      .simple-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .timeline li {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 18px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .timeline li:last-child {
+        border-bottom: 0;
+      }
+
+      .item-title {
+        display: block;
+        color: var(--text);
+        font-weight: 800;
+      }
+
+      .item-desc {
+        display: block;
+        margin-top: 3px;
+        color: #475569;
+        font-size: 14px;
+      }
+
+      .date {
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .info-table td {
+        padding: 11px 0;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+
+      .info-table tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .info-table td:last-child {
+        color: var(--muted);
+        font-weight: 700;
+        text-align: right;
+        white-space: nowrap;
+        padding-left: 18px;
+      }
+
+      .award {
+        color: var(--rose);
+      }
+
+      .service-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .service-grid span,
+      .simple-list li {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--surface-soft);
+        color: #334155;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .service-grid span {
+        padding: 6px 11px;
+      }
+
+      .simple-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .simple-list li {
+        padding: 7px 12px;
+      }
+
+      .footer {
+        padding: 26px 0 10px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .visitor-map {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 24px;
+      }
+
+      @media (max-width: 920px) {
+        .page {
+          grid-template-columns: 1fr;
+          margin-top: 28px;
         }
 
-        a:focus,
-        a:hover{
-          color: rgb(252, 76, 122);
-          border-color: rgb(252, 76, 122);
+        .sidebar {
+          position: static;
         }
-        .publogo { width: 360px; height: 200px; object-fit: scale-down; object-position: center; margin-right : 15px; float : left; border : 0;}
-        .publication { clear : left; padding-bottom : 0px; margin-bottom : 100px; }
-        .publication p { height : 100px; padding-top : 5px;}
-        .publication strong a { font-size: 17px; color : #0000A0; }
-        .publication .links { position : relative; top : 15px }
-        .publication .links a { margin-right : 20px; }
+
+        .profile-card {
+          display: grid;
+          grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+          align-items: center;
+        }
+
+        .portrait-wrap {
+          padding: 16px;
+        }
+
+        .profile-body {
+          padding: 18px 20px 20px 4px;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav-inner {
+          width: min(100% - 28px, 1180px);
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 12px 0;
+        }
+
+        .nav-links {
+          justify-content: flex-start;
+          gap: 11px;
+        }
+
+        .page {
+          width: min(100% - 28px, 1180px);
+          gap: 28px;
+        }
+
+        .profile-card,
+        .paper-card {
+          grid-template-columns: 1fr;
+        }
+
+        .profile-body {
+          padding: 18px 20px 22px;
+        }
+
+        .portrait {
+          max-height: 360px;
+        }
+
+        .section-header,
+        .timeline li {
+          align-items: flex-start;
+          grid-template-columns: 1fr;
+          flex-direction: column;
+        }
+
+        .date,
+        .info-table td:last-child {
+          white-space: normal;
+        }
+
+        .info-table td {
+          display: block;
+          padding-bottom: 4px;
+        }
+
+        .info-table td:last-child {
+          text-align: left;
+          padding-left: 0;
+          padding-top: 0;
+          padding-bottom: 11px;
+        }
+
+        .visitor-map {
+          display: none;
+        }
+      }
     </style>
-    <title>Shuai Yang's Homepage</title>
-    <!-- <link rel="icon" href="../content/images/icon.png"> -->
   </head>
   <body>
-    <div class="container">
-        <table width="100%" align="center" border="0">
-<tr>
-    <td width="60%" valign="middle">
-        <h1 style="margin-top:18px;margin-bottom:36px; color:rgb(59, 103, 236)">Shuai Yang</h1>
-        <p style="font-size:18px; color:rgb(0, 0, 0)">
-	        <b>Ph.D. student</b> <br />
-            Artificial Intelligence Thrust, Information Hub  <br />
-	        The Hong Kong Univerisity of Science and Technology (Guangzhou)
-            <br /><br />
-            Email: <br /> shuaiyang5000 [at] gmail [dot] com  <br /> syang252 [at] connect [dot] hkust-gz [dot] edu [dot] cn
-        </p>
-        <p>
-            <a href="https://scholar.google.com/citations?user=zBHAeuUAAAAJ&hl=en">[Google Scholar]</a> &nbsp;
-            <a href="https://github.com/AndysonYs">[GitHub]</a> &nbsp;
-        </p>
-    </td>
-    <td width="40%" align="center">
-        <img src="images/me_2.jpg" width="70%" />
-    </td>
-</tr>
-</table>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <div class="nav-inner">
+        <a class="brand" href="#">Shuai Yang</a>
+        <div class="nav-links">
+          <a href="#about-me">Biography</a>
+          <a href="#publications">Research</a>
+          <a href="#experience">Experience</a>
+          <a href="#honors--awards">Honors</a>
+          <a href="#Academic_services">Service</a>
+          <a href="#Teaching">Teaching</a>
+        </div>
+      </div>
+    </nav>
 
-<h2 id="about-me" style="color:rgb(59, 103, 236)">Biography</h2>
-<hr style="margin-top:-16px;margin-bottom:10px;" />
+    <div class="page">
+      <aside class="sidebar" aria-label="Profile">
+        <div class="profile-card">
+          <div class="portrait-wrap">
+            <img class="portrait" src="images/me_2.jpg" alt="Shuai Yang">
+          </div>
+          <div class="profile-body">
+            <h1>Shuai Yang</h1>
+            <p class="role">Research Scientist</p>
+            <p class="affiliation">
+              NVIDIA Research
+            </p>
+            <p class="email-list">
+              shuaiyang5000 [at] gmail [dot] com
+            </p>
+            <div class="contact-links">
+              <a class="pill-link" href="https://scholar.google.com/citations?user=zBHAeuUAAAAJ&amp;hl=en">Google Scholar</a>
+              <a class="pill-link" href="https://github.com/AndysonYs">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </aside>
 
-<p>Hello! I am currently a PhD student (since 2022) at the AI Thrust, The Hong Kong University of Science and Technology (Guangzhou), under the guidance of <a href="https://www.yingcong.me/">Prof. Yingcong Chen</a>.
-    My research interests are in deep learning and computer vision, with a particular focus on efficient deep learning and generative models.
-    I have also had the privilege of working closely with <a href="https://yukangchen.com/">Dr. Yukang Chen</a>.
-</p>
+      <main>
+        <section class="section copy-block" id="about-me">
+          <div class="section-header">
+            <h2>Biography</h2>
+          </div>
+          <p>Hello! I am a Research Scientist at NVIDIA Research, working with <a href="https://hanlab.mit.edu/songhan">Prof. Song Han</a>.
+            My research interests are in deep learning and computer vision, with a particular focus on efficient deep learning and generative models.
+          </p>
+          <p>I graduated from The Hong Kong University of Science and Technology (Guangzhou), where I was under the guidance of <a href="https://www.yingcong.me/">Prof. Yingcong Chen</a>. Previously, I earned my Bachelor's degree from the School of Computer Science and Engineering at Beihang University (BUAA). I have also had the privilege of working closely with <a href="https://yukangchen.com/">Dr. Yukang Chen</a>.</p>
+        </section>
 
-<p>Previously, I earned my Bachelor's degree from the School of Computer Science and Engineering at Beihang University (BUAA).</p>
+        <section class="section" id="publications">
+          <div class="section-header">
+            <h2>Research</h2>
+            <p class="section-note">*: Equal Contribution · <a href="https://scholar.google.com/citations?user=zBHAeuUAAAAJ&amp;hl=en">Google Scholar</a></p>
+          </div>
 
+          <div class="paper-list">
+            <article class="paper-card">
+              <img src="images/LongLive-logo2.jpg" class="paper-thumb" alt="LongLive teaser">
+              <div>
+                <h3 class="paper-title"><a href="https://github.com/NVlabs/LongLive">LongLive: Real-time Interactive Long Video Generation</a></h3>
+                <p class="venue">arXiv preprint, 2025</p>
+                <p class="authors"><strong>Shuai Yang</strong>, Wei Huang, Ruihang Chu, Yicheng Xiao, Yuyang Zhao, Xianbang Wang, Muyang Li, Enze Xie, Yingcong Chen, Yao Lu, Song Han, Yukang Chen.</p>
+                <p class="highlight"><em>Huggingface Daily Paper Top1, Huggingface Weekly Paper Top2, Huggingface Monthly Paper Top8</em></p>
+                <div class="links">
+                  <a href="https://arxiv.org/abs/2509.22622">Paper</a>
+                  <a href="https://nvlabs.github.io/LongLive">Page</a>
+                  <a href="https://huggingface.co/Efficient-Large-Model/LongLive-1.3B">Model</a>
+                  <a href="https://github.com/NVlabs/LongLive">Code</a>
+                  <a class="star-link" href="https://github.com/NVlabs/LongLive" aria-label="LongLive GitHub stars"><img alt="GitHub stars" src="https://img.shields.io/github/stars/NVlabs/LongLive?style=social"></a>
+                </div>
+              </div>
+            </article>
 
+            <article class="paper-card">
+              <img src="images/QeRL-logo.png" class="paper-thumb" alt="QeRL teaser">
+              <div>
+                <h3 class="paper-title"><a href="https://github.com/NVlabs/QeRL">QeRL: Beyond Efficiency -- Quantization-enhanced Reinforcement Learning for LLMs</a></h3>
+                <p class="venue">arXiv preprint, 2025</p>
+                <p class="authors">Wei Huang, Yi Ge, <strong>Shuai Yang</strong>, Yicheng Xiao, Huizi Mao, Yujun Lin, Hanrong Ye, Sifei Liu, Ka Chun Cheung, Hongxu Yin, Yao Lu, Xiaojuan Qi, Song Han, Yukang Chen</p>
+                <div class="links">
+                  <a href="https://arxiv.org/abs/2510.11696">Paper</a>
+                  <a href="https://github.com/NVlabs/QeRL">Code</a>
+                  <a class="star-link" href="https://github.com/NVlabs/QeRL" aria-label="QeRL GitHub stars"><img alt="GitHub stars" src="https://img.shields.io/github/stars/NVlabs/QeRL?style=social"></a>
+                </div>
+              </div>
+            </article>
 
-<script type="text/javascript">
-    function hideshow(which){
-    if (!document.getElementById)
-        return
-    if (which.style.display=="block")
-        which.style.display="none"
-    else
-        which.style.display="block"
-    }
-</script>
+            <article class="paper-card">
+              <img src="images/sana-video-logo2.jpg" class="paper-thumb" alt="SANA-Video teaser">
+              <div>
+                <h3 class="paper-title"><a href="https://nvlabs.github.io/Sana/Video/">SANA-Video: Efficient Video Generation with Block Linear Diffusion Transformer</a></h3>
+                <p class="venue">arXiv preprint, 2025</p>
+                <p class="authors">Junsong Chen, Yuyang Zhao, Jincheng Yu, Ruihang Chu, Junyu Chen, <strong>Shuai Yang</strong>, Xianbang Wang, Yicheng Pan, Daquan Zhou, Huan Ling, Haozhe Liu, Hongwei Yi, Hao Zhang, Muyang Li, Yukang Chen, Han Cai, Sanja Fidler, Ping Luo, Song Han, Enze Xie.</p>
+                <div class="links">
+                  <a href="https://www.arxiv.org/pdf/2509.24695">Paper</a>
+                  <a href="https://nvlabs.github.io/Sana/Video/">Page</a>
+                  <a href="https://github.com/NVlabs/Sana">Code</a>
+                  <a class="star-link" href="https://github.com/NVlabs/Sana" aria-label="Sana GitHub stars"><img alt="GitHub stars" src="https://img.shields.io/github/stars/NVlabs/Sana?style=social"></a>
+                </div>
+              </div>
+            </article>
 
+            <article class="paper-card">
+              <img src="images/long-rl-logo.png" class="paper-thumb" alt="Long-RL teaser">
+              <div>
+                <h3 class="paper-title"><a href="https://github.com/NVlabs/Long-RL">Code of <i>Long-RL</i>: Scaling RL to Long Sequences</a></h3>
+                <p class="venue">Code contribution</p>
+                <p class="authors">The third most <strong>code contributor</strong> for Long-RL Repo.</p>
+                <p class="authors">Yukang Chen, Wei Huang, <strong>Shuai Yang</strong>, Qinghao Hu, Baifeng Shi, Hanrong Ye, Ligeng Zhu.</p>
+                <div class="links">
+                  <a href="https://github.com/NVlabs/Long-RL">Code</a>
+                  <a class="star-link" href="https://github.com/NVlabs/Long-RL" aria-label="Long-RL GitHub stars"><img alt="GitHub stars" src="https://img.shields.io/github/stars/NVlabs/Long-RL?style=social"></a>
+                </div>
+              </div>
+            </article>
 
+            <article class="paper-card">
+              <img src="images/seed_story_teaser.jpg" class="paper-thumb" alt="SEED-Story teaser">
+              <div>
+                <h3 class="paper-title"><a href="https://arxiv.org/abs/2407.08683"><i>SEED-Story</i>: Multimodal Long Story Generation with Large Language Model</a></h3>
+                <p class="venue">International Conference on Computer Vision HiGen Workshop, 2025</p>
+                <p class="authors"><strong>Shuai Yang</strong>, Yuying Ge, Yang Li, Yukang Chen, Yixiao Ge, Ying Shan, Yingcong Chen.</p>
+                <p class="highlight"><em>ICCVW, Oral</em><br><em>Huggingface Daily Paper</em></p>
+                <div class="links">
+                  <a href="https://arxiv.org/abs/2407.08683">Paper</a>
+                  <a href="https://huggingface.co/TencentARC/SEED-Story">Model</a>
+                  <a href="https://huggingface.co/datasets/TencentARC/StoryStream">Data</a>
+                  <a href="https://github.com/TencentARC/SEED-Story">Code</a>
+                  <a class="star-link" href="https://github.com/TencentARC/SEED-Story" aria-label="SEED-Story GitHub stars"><img alt="GitHub stars" src="https://img.shields.io/github/stars/TencentARC/SEED-Story?style=social"></a>
+                </div>
+              </div>
+            </article>
 
-<h2 id="publications" style="color:rgb(59, 103, 236)">Research <a href="https://scholar.google.com/citations?user=zBHAeuUAAAAJ&hl=en">[Google Scholar]</a></h2>
-<hr style="margin-top:-16px;margin-bottom:10px;" />
+            <article class="paper-card">
+              <img src="images/defect_spectrum_teaser.png" class="paper-thumb" alt="Defect Spectrum teaser">
+              <div>
+                <h3 class="paper-title"><a href="https://arxiv.org/abs/2310.17316"><i>Defect Spectrum</i>: A Granular Look of Large-Scale Defect Datasets with Rich Semantics</a></h3>
+                <p class="venue">European Conference on Computer Vision (ECCV), 2024</p>
+                <p class="authors"><b>Shuai Yang*</b>, Zhifei Chen*, Pengguang Chen, Xi Fang, Shu Liu, Yingcong Chen.</p>
+                <div class="links">
+                  <a href="https://arxiv.org/abs/2310.17316">Paper</a>
+                  <a href="https://envision-research.github.io/Defect_Spectrum/">Page</a>
+                  <a href="https://huggingface.co/datasets/DefectSpectrum/Defect_Spectrum">Data</a>
+                  <a href="https://github.com/EnVision-Research/Defect_Spectrum">Code</a>
+                  <a class="star-link" href="https://github.com/EnVision-Research/Defect_Spectrum" aria-label="Defect Spectrum GitHub stars"><img alt="GitHub stars" src="https://img.shields.io/github/stars/EnVision-Research/Defect_Spectrum?style=social"></a>
+                </div>
+              </div>
+            </article>
 
-<p>*: Equal Contribution</p>
+            <article class="paper-card">
+              <img src="images/lora_sparse_teaser.png" class="paper-thumb" alt="Sparse attention teaser">
+              <div>
+                <h3 class="paper-title"><a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Song_Low-Rank_Approximation_for_Sparse_Attention_in_Multi-Modal_LLMs_CVPR_2024_paper.pdf">Low-Rank Approximation for Sparse Attention in Multi-Modal LLMs</a></h3>
+                <p class="venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2024</p>
+                <p class="authors">Lin Song, Yukang Chen, <b>Shuai Yang</b>, Xiaohan Ding, Yixiao Ge, Yingcong Chen, Ying Shan.</p>
+                <div class="links">
+                  <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Song_Low-Rank_Approximation_for_Sparse_Attention_in_Multi-Modal_LLMs_CVPR_2024_paper.pdf">Paper</a>
+                </div>
+              </div>
+            </article>
 
-<!-- **Selected Preprints:** -->
+            <article class="paper-card">
+              <img src="images/ddsm_teaser.png" class="paper-thumb" alt="DDSM teaser">
+              <div>
+                <h3 class="paper-title"><a href="https://arxiv.org/abs/2310.03337">Denoising Diffusion Step-aware Models</a></h3>
+                <p class="venue">International Conference on Learning Representations (ICLR) 2024</p>
+                <p class="authors"><b>Shuai Yang</b>, Yukang Chen, Luozhou Wang, Shu Liu, Yingcong Chen.</p>
+                <div class="links">
+                  <a href="https://arxiv.org/abs/2310.03337">Paper</a>
+                  <a href="https://github.com/EnVision-Research/DDSM">Code</a>
+                  <a class="star-link" href="https://github.com/EnVision-Research/DDSM" aria-label="DDSM GitHub stars"><img alt="GitHub stars" src="https://img.shields.io/github/stars/EnVision-Research/DDSM?style=social"></a>
+                </div>
+              </div>
+            </article>
 
-<!-- <ul>
+            <article class="paper-card">
+              <img src="images/sdd_teaser.png" class="paper-thumb" alt="Selective Diffusion Distillation teaser">
+              <div>
+                <h3 class="paper-title"><a href="https://arxiv.org/abs/2307.08448"><i>Not All Steps are Created Equal</i>: Selective Diffusion Distillation for Image Manipulation</a></h3>
+                <p class="venue">IEEE/CVF International Conference on Computer Vision (ICCV), 2023</p>
+                <p class="authors">Luozhou Wang*, <b>Shuai Yang*</b>, Shu Liu, Yingcong Chen</p>
+                <div class="links">
+                  <a href="https://arxiv.org/abs/2307.08448">Paper</a>
+                  <a href="https://github.com/EnVision-Research/Selective-Diffusion-Distillation">Code</a>
+                  <a class="star-link" href="https://github.com/EnVision-Research/Selective-Diffusion-Distillation" aria-label="Selective Diffusion Distillation GitHub stars"><img alt="GitHub stars" src="https://img.shields.io/github/stars/EnVision-Research/Selective-Diffusion-Distillation?style=social"></a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
 
-</ul> -->
+        <section class="section" id="experience">
+          <div class="section-header">
+            <h2>Experience</h2>
+          </div>
+          <ul class="timeline">
+            <li>
+              <div>
+                <span class="item-title">NVIDIA Research</span>
+                <span class="item-desc">Full-time researcher working on efficient generative models with <a href="https://hanlab.mit.edu/songhan">Prof. Song Han</a></span>
+              </div>
+              <span class="date">Apr 2026 - Present</span>
+            </li>
+            <li>
+              <div>
+                <span class="item-title">NVIDIA Research</span>
+                <span class="item-desc">Research intern working on efficient generative models with <a href="https://hanlab.mit.edu/songhan">Prof. Song Han</a></span>
+              </div>
+              <span class="date">Mar 2025 - Feb 2026</span>
+            </li>
+            <li>
+              <div>
+                <span class="item-title">ARC Lab, Tencent PCG</span>
+                <span class="item-desc">Research intern working on multimodal LLM, manager: <a href="https://geyixiao.com/">Dr. Yixiao Ge</a></span>
+              </div>
+              <span class="date">Nov 2023 - Jul 2024</span>
+            </li>
+            <li>
+              <div>
+                <span class="item-title">Smartmore</span>
+                <span class="item-desc">Full-time computer vision engineer working on tool-chains, manager: <a href="https://scholar.google.com/citations?user=BUEDUFkAAAAJ">Dr. Shu Liu</a></span>
+              </div>
+              <span class="date">Nov 2020 - Aug 2022</span>
+            </li>
+            <li>
+              <div>
+                <span class="item-title">Sensetime</span>
+                <span class="item-desc">Research intern working on neural architecture search (NAS)</span>
+              </div>
+              <span class="date">Dec 2019 - Jun 2020</span>
+            </li>
+            <li>
+              <div>
+                <span class="item-title">University of California, Los Angeles</span>
+                <span class="item-desc">Research Assistant</span>
+              </div>
+              <span class="date">Jul 2019 - Oct 2019</span>
+            </li>
+            <li>
+              <div>
+                <span class="item-title">Tsinghua University</span>
+                <span class="item-desc">Research Assistant</span>
+              </div>
+              <span class="date">Sep 2018 - Jun 2019</span>
+            </li>
+          </ul>
+        </section>
 
-<!-- **2025:** -->
-<div class="publication">
-  <img src="images/LongLive-logo2.jpg" class="publogo">
-  <p>
-      <strong>
-          <a href="https://github.com/NVlabs/LongLive">LongLive: Real-time Interactive Long Video Generation
+        <section class="section" id="honors--awards">
+          <div class="section-header">
+            <h2>Honors &amp; Awards</h2>
+          </div>
+          <table class="info-table">
+            <tbody>
+              <tr>
+                <td>Postgraduate Scholarship, HKUST(GZ)</td>
+                <td>2022 - 2026</td>
+              </tr>
+              <tr>
+                <td><strong class="award">1st place</strong> on the challenge of the Third Workshop on Neural Architecture Search (NAS), CVPR2022</td>
+                <td>2022</td>
+              </tr>
+              <tr>
+                <td>Distinguished Graduate, School of Computer Science and Engineering, BUAA</td>
+                <td>2020</td>
+              </tr>
+              <tr>
+                <td>Undergraduate Research Scholarship, BUAA</td>
+                <td>2019</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section" id="Academic_services">
+          <div class="section-header">
+            <h2>Academic Services</h2>
+          </div>
+          <p class="section-note">Conference Reviewer:</p>
+          <div class="service-grid" aria-label="Conference reviewer service">
+            <span>ICLR: 25</span>
+            <span>NeurIPS: 24, 25</span>
+            <span>ICML: 25</span>
+            <span>ICCV: 23, 25</span>
+            <span>CVPR: 24, 25</span>
+            <span>ECCV: 24</span>
+          </div>
+        </section>
+
+        <section class="section" id="Teaching">
+          <div class="section-header">
+            <h2>Teaching</h2>
+          </div>
+          <table class="info-table">
+            <tbody>
+              <tr>
+                <td>AIAA5023 Introduction to Computer Vision, HKUST(GZ)</td>
+                <td>2023-2024</td>
+              </tr>
+              <tr>
+                <td>AIAA5045 Medical Imaging, HKUST(GZ)</td>
+                <td>2023-2024</td>
+              </tr>
+              <tr>
+                <td>Principles of Computer Composition, BUAA</td>
+                <td>2018-2019</td>
+              </tr>
+              <tr>
+                <td>C Programing, BUAA</td>
+                <td>2017-2018</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section" id="interests">
+          <div class="section-header">
+            <h2>Personal Interests</h2>
+          </div>
+          <ul class="simple-list">
+            <li>Basketball</li>
+            <li>Lifting</li>
+            <li>Dota2 (Ranked Immortal, 6500+ MMR)</li>
+          </ul>
+        </section>
+
+        <div class="visitor-map">
+          <a class="pull-right" href="#">
+            <script id="clustrmaps" src="https://clustrmaps.com/map_v2.js?d=RkLO2C4qjLfW4layRz7bju2U46_bm6RfSg_zQp7fbJQ&amp;cl=ffffff&amp;w=a"></script>
           </a>
-      </strong>
-      <br>
-      arXiv preprint, 2025
-      <br>
-      <strong>Shuai Yang</strong>, Wei Huang, Ruihang Chu, Yicheng Xiao, Yuyang Zhao, Xianbang Wang, Muyang Li, Enze Xie, Yingcong Chen, Yao Lu, Song Han, Yukang Chen.
-      <br>
-      <br>
-      <em>Huggingface Daily Paper Top1, Huggingface Weekly Paper Top2, Huggingface Monthly Paper Top8</em>
-      <br>
-      <span class="links">
-          <a href="https://arxiv.org/abs/2509.22622">[Paper]</a>
-          <a href="https://nvlabs.github.io/LongLive">[Page]</a>
-          <a href="https://huggingface.co/Efficient-Large-Model/LongLive-1.3B">[Model]</a>
-          <a href="https://github.com/NVlabs/LongLive">[Code]</a><a href="https://github.com/NVlabs/LongLive"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/NVlabs/LongLive?style=social" /> </a>
-      </span>
-  </p>
-</div>
-<br>
+        </div>
 
-<div class="publication">
-  <img src="images/QeRL-logo.png" class="publogo">
-  <p>
-      <strong>
-          <a href="https://github.com/NVlabs/QeRL">QeRL: Beyond Efficiency -- Quantization-enhanced Reinforcement Learning for LLMs
-          </a>
-      </strong>
-      <br>
-      arXiv preprint, 2025
-      <br>
-      Wei Huang, Yi Ge, <strong>Shuai Yang</strong>, Yicheng Xiao, Huizi Mao, Yujun Lin, Hanrong Ye, Sifei Liu, Ka Chun Cheung, Hongxu Yin, Yao Lu, Xiaojuan Qi, Song Han, Yukang Chen
-      <br>
-      <span class="links">
-          <a href="https://arxiv.org/abs/2510.11696">[Paper]</a>
-          <a href="https://github.com/NVlabs/QeRL">[Code]</a><a href="https://github.com/NVlabs/QeRL"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/NVlabs/QeRL?style=social" /> </a>
-      </span>
-  </p>
-</div>
-<br>
-
-<div class="publication">
-  <img src="images/sana-video-logo2.jpg" class="publogo">
-  <p>
-      <strong>
-          <a href="https://nvlabs.github.io/Sana/Video/">SANA-Video: Efficient Video Generation with Block Linear Diffusion Transformer
-          </a>
-      </strong>
-      <br>
-      arXiv preprint, 2025
-      <br>
-      Junsong Chen, Yuyang Zhao, Jincheng Yu, Ruihang Chu, Junyu Chen, <strong>Shuai Yang</strong>, Xianbang Wang, Yicheng Pan, Daquan Zhou, Huan Ling, Haozhe Liu, Hongwei Yi, Hao Zhang, Muyang Li, Yukang Chen, Han Cai, Sanja Fidler, Ping Luo, Song Han, Enze Xie.      <br>
-      <span class="links">
-          <a href="https://www.arxiv.org/pdf/2509.24695">[Paper]</a>
-          <a href="https://nvlabs.github.io/Sana/Video/">[Page]</a>
-          <a href="https://github.com/NVlabs/Sana">[Code]</a><a href="https://github.com/NVlabs/Sana"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/NVlabs/Sana?style=social" /> </a>
-      </span>
-  </p>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<div class="publication">
-  <img src="images/long-rl-logo.png" class="publogo">
-  <p>
-      <strong>
-          <a href="https://github.com/NVlabs/Long-RL">Code of <i>Long-RL</i>: Scaling RL to Long Sequences
-          </a>
-      </strong>
-      <br>
-      The third most <strong>code contributor</strong> for Long-RL Repo.
-      <br>
-      Yukang Chen, Wei Huang, <strong>Shuai Yang</strong>, Qinghao Hu, Baifeng Shi, Hanrong Ye, Ligeng Zhu.
-      <br>
-      <span class="links">
-          <a href="https://github.com/NVlabs/Long-RL">[Code]</a><a href="https://github.com/NVlabs/Long-RL"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/NVlabs/Long-RL?style=social" /> </a>
-      </span>
-  </p>
-</div>
-<br>
-<br>
-
-
-
-<!-- **2024:** -->
-<div class="publication">
-  <img src="images/seed_story_teaser.jpg" class="publogo">
-  <p>
-      <strong>
-          <a href="https://arxiv.org/abs/2407.08683"><i>SEED-Story</i>: Multimodal Long Story Generation with Large Language Model
-          </a>
-      </strong>
-      <br>
-      <strong>Shuai Yang</strong>, Yuying Ge, Yang Li, Yukang Chen, Yixiao Ge, Ying Shan, Yingcong Chen.
-      <br>
-      <br>
-      <em>International Conference on Computer Vision HiGen Workshop, 2025</em>
-      <br>
-      <em>ICCVW, Oral</em>
-      <br>
-      <em>Huggingface Daily Paper</em>
-
-
-      <br>
-      <span class="links">
-          <a href="https://arxiv.org/abs/2407.08683">[Paper]</a>
-          <a href="https://huggingface.co/TencentARC/SEED-Story">[Model]</a>
-          <a href="https://huggingface.co/datasets/TencentARC/StoryStream">[Data]</a>
-          <a href="https://github.com/TencentARC/SEED-Story">[Code]</a><a href="https://github.com/TencentARC/SEED-Story"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/TencentARC/SEED-Story?style=social" /> </a>
-      </span>
-  </p>
-</div>
-<br>
-<br>
-<br>
-
-
-<!-- **2024:** -->
-<div class="publication">
-  <img src="images/defect_spectrum_teaser.png" class="publogo">
-  <p>
-      <strong>
-          <a href="https://arxiv.org/abs/2310.17316"><i>Defect Spectrum</i>: A Granular Look of Large-Scale Defect Datasets with Rich Semantics
-          </a>
-      </strong>
-      <br>
-      <b>Shuai Yang*</b>, Zhifei Chen*, Pengguang Chen, Xi Fang, Shu Liu, Yingcong Chen.
-      <br>
-      <br>
-      <em>European Conference on Computer Vision (ECCV), 2024.</em>
-      <br>
-      <span class="links">
-          <a href="https://arxiv.org/abs/2310.17316">[Paper]</a>
-          <a href="https://envision-research.github.io/Defect_Spectrum/">[Page]</a>
-          <a href="https://huggingface.co/datasets/DefectSpectrum/Defect_Spectrum">[Data]</a>
-          <a href="https://github.com/EnVision-Research/Defect_Spectrum">[Code]</a><a href="https://github.com/EnVision-Research/Defect_Spectrum"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/EnVision-Research/Defect_Spectrum?style=social" /> </a>
-      </span>
-  </p>
-</div>
-<br>
-<br>
-<br>
-
-<div class="publication">
-  <img src="images/lora_sparse_teaser.png" class="publogo">
-  <p>
-      <strong>
-          <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Song_Low-Rank_Approximation_for_Sparse_Attention_in_Multi-Modal_LLMs_CVPR_2024_paper.pdf">Low-Rank Approximation for Sparse Attention in Multi-Modal LLMs
-          </a>
-      </strong>
-      <br>
-      Lin Song, Yukang Chen, <b>Shuai Yang</b>, Xiaohan Ding, Yixiao Ge, Yingcong Chen, Ying Shan.
-      <br>
-      <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2024.</em>
-      <br>
-      <span class="links">
-          <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Song_Low-Rank_Approximation_for_Sparse_Attention_in_Multi-Modal_LLMs_CVPR_2024_paper.pdf">[Paper]</a>
-      </span>
-  </p>
-</div>
-<br>
-<br>
-<br>
-
-<!-- **2024:** -->
-<div class="publication">
-  <img src="images/ddsm_teaser.png" class="publogo">
-  <p>
-      <strong>
-          <a href="https://arxiv.org/abs/2310.03337">Denoising Diffusion Step-aware Models
-          </a>
-      </strong>
-      <br>
-      <b>Shuai Yang</b>, Yukang Chen, Luozhou Wang, Shu Liu, Yingcong Chen.
-      <br>
-      <br>
-      <em>International Conference on Learning Representations (ICLR) 2024. </em>
-      <br>
-      <span class="links">
-          <a href="https://arxiv.org/abs/2310.03337">[Paper]</a>
-          <a href="https://github.com/EnVision-Research/DDSM">[Code]</a><a href="https://github.com/EnVision-Research/DDSM"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/EnVision-Research/DDSM?style=social" /> </a>
-      </span>
-  </p>
-</div>
-<br>
-<br>
-<br>
-
-
-<div class="publication">
-  <img src="images/sdd_teaser.png" class="publogo">
-  <p>
-      <strong>
-          <a href="https://arxiv.org/abs/2307.08448"><i>Not All Steps are Created Equal</i>: Selective Diffusion Distillation for Image Manipulation </a>
-      </strong>
-      <br>
-      Luozhou Wang*, <b>Shuai Yang*</b>, Shu Liu, Yingcong Chen
-      <br>
-      <br>
-      <em>IEEE/CVF International Conference on Computer Vision (ICCV), 2023</em>
-      <br>
-      <span class="links">
-          <a href="https://arxiv.org/abs/2307.08448">[Paper]</a>
-          <a href="https://github.com/EnVision-Research/Selective-Diffusion-Distillation">[Code]</a><a href="https://github.com/EnVision-Research/Selective-Diffusion-Distillation"><img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/EnVision-Research/Selective-Diffusion-Distillation?style=social" /> </a>
-      </span>
-  </p>
-</div>
-<br>
-<br>
-<br>
-
-<h2 id="experience" style="color:rgb(59, 103, 236)">Experience</h2>
-<hr style="margin-top:-16px;margin-bottom:10px;" />
-
-<ul style="font-size: 14px">
-
-  <li style="margin-bottom: 10px">
-    <span><strong>NVIDIA Research</strong></span>
-    <div style="float: right;">Mar 2025 - Present</div>
-    <br clear="all">
-    <span>Research intern working on efficient generative models, manager: <a href="https://hanlab.mit.edu/songhan">Prof. Song Han</a></span>
-  </li>
-
-  <li style="margin-bottom: 10px">
-    <span><strong>ARC Lab, Tencent PCG</strong></span>
-    <div style="float: right;">Nov 2023 - Jul 2024</div>
-    <br clear="all">
-    <span>Research intern working on multimodal LLM, manager: <a href="https://geyixiao.com/">Dr. Yixiao Ge</a></span>
-  </li>
-
-  <li style="margin-bottom: 10px">
-    <span><strong>Smartmore</strong></span>
-    <div style="float: right;">Nov 2020 - Aug 2022</div>
-    <br clear="all">
-    <span>Full-time computer vision engineer working on tool-chains, manager: <a href="https://scholar.google.com/citations?user=BUEDUFkAAAAJ">Dr. Shu Liu</a></span>
-  </li>
-
-  <li style="margin-bottom: 10px">
-    <span><strong>Sensetime</strong></span>
-    <div style="float: right;">Dec 2019 - Jun 2020</div>
-    <br clear="all">
-    <span>Research intern working on neural architecture search (NAS)</a></span>
-  </li>
-
-  <li style="margin-bottom: 10px">
-    <span><strong>University of California, Los Angeles</strong></span>
-    <div style="float: right;">Jul 2019 - Oct 2019</div>
-    <br clear="all">
-    <span>Research Assistant at AI in Imaging and Neuroscience Lab</a></span>
-  </li>
-
-  <li style="margin-bottom: 10px">
-    <span><strong>Tsinghua University</strong></span>
-    <div style="float: right;">Sep 2018 - Jun 2019</div>
-    <br clear="all">
-    <span>Research Assistant in School of Software</a></span>
-  </li>
-</ul>
-
-
-
-<!-- * Bachelor, Aug 2013 - July 2017, Computer Science and Technology, Harbin Institute Technology. -->
-
-<h2 id="honors--awards" style="color:rgb(59, 103, 236)">Honors &amp; Awards</h2>
-<hr style="margin-top:-16px;margin-bottom:10px;" />
-
-<table style="border-spacing:2px" width="100%">
-    <tbody>
-    <tr>
-        <td>Postgraduate Scholarship, HKUST(GZ)</td>
-        <td style="text-align: right">2022 - 2026</td>
-    </tr>
-    <tr>
-        <td><strong style="color:rgb(247, 13, 29)">1st place</strong> on the challenge of the Third Workshop on Neural Architecture Search (NAS), CVPR2022</td>
-        <td style="text-align: right">2022</td>
-    </tr>
-    <tr>
-        <td>Distinguished Graduate, School of Computer Science and Engineering, BUAA</td>
-        <td style="text-align: right">2020</td>
-    </tr>
-    <tr>
-        <td>Undergraduate Research Scholarship, BUAA</td>
-        <td style="text-align: right">2019</td>
-    </tr>
-
-</tbody></table>
-
-<!-- ###################### -->
-
-<h2 id="Academic_services" style="color:rgb(59, 103, 236)">Academic Services</h2>
-<hr style="margin-top:-16px;margin-bottom:10px;" />
-Conference Reviewer:
-<ul>
-  <li>ICLR: 25</li>
-  <li>NeurIPS: 24, 25</li>
-  <li>ICML: 25</li>
-  <li>ICCV: 23, 25</li>
-  <li>CVPR: 24, 25</li>
-  <li>ECCV: 24</li>
-</ul>
-
-<h2 id="Teaching" style="color:rgb(59, 103, 236)">Teaching</h2>
-<hr style="margin-top:-16px;margin-bottom:10px;" />
-<table id="Teaching" border="0" width="100%">
-	<tbody>
-		<tr>
-			<td>AIAA5023 Introduction to Computer Vision, HKUST(GZ)</td><td></td><td style="text-align: right">2023-2024</td>
-		</tr>
-		<tr>
-			<td>AIAA5045 Medical Imaging, HKUST(GZ)</td><td></td><td style="text-align: right">2023-2024</td>
-		</tr>
-		<tr>
-			<td>Principles of Computer Composition, BUAA</td><td></td><td style="text-align: right">2018-2019</td>
-		</tr>
-    	<tr>
-			<td>C Programing, BUAA</td><td></td><td style="text-align: right">2017-2018</td>
-		</tr>
-	</tbody>
-</table>
-
-<h2 id="" style="color:rgb(59, 103, 236)">Personal Interests</h2>
-<hr style="margin-top:-16px;margin-bottom:10px;" />
-<ul>
-  <li>Basketball</li>
-  <li>Lifting</li>
-  <li>Dota2 (Ranked Immortal, 6500+ MMR)</li>
-</ul>
-
-
-<p align=right>
-	<a class="pull-right" href="#">
-	<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=RkLO2C4qjLfW4layRz7bju2U46_bm6RfSg_zQp7fbJQ&cl=ffffff&w=a"></script>
-	</a>
-</p>
-
-<p><center><font>
-        <br>&copy; Shuai Yang | Last updated: Oct. 2025</font></center>
-</p>
-
-
+        <footer class="footer">
+          <p>&copy; Shuai Yang | Last updated: Oct. 2025</p>
+        </footer>
+      </main>
     </div>
   </body>
 </html>
