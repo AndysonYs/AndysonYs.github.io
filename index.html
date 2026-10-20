@@ -660,12 +660,6 @@
         border: 2px solid var(--muted);
       }
 
-      .timeline li.current::before {
-        border-color: #76b900;
-        background: #76b900;
-        box-shadow: 0 0 0 4px rgba(118, 185, 0, 0.2);
-      }
-
       .item-title {
         display: block;
         color: var(--text);
@@ -685,6 +679,92 @@
         font-weight: 600;
         white-space: nowrap;
         font-variant-numeric: tabular-nums;
+      }
+
+      .timeline.compact li {
+        padding: 8px 0;
+        gap: 14px;
+      }
+
+      .timeline.compact li::before {
+        top: 14px;
+        width: 10px;
+        height: 10px;
+        left: -21px;
+      }
+
+      .timeline.compact::before {
+        top: 16px;
+        bottom: 16px;
+      }
+
+      .timeline.compact .item-title {
+        font-size: 14.5px;
+        font-weight: 650;
+      }
+
+      .timeline.compact .item-desc {
+        margin-top: 0;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .timeline.compact .date {
+        font-size: 12.5px;
+      }
+
+      .timeline.compact li.major {
+        padding: 14px 0;
+      }
+
+      .timeline.compact li.major::before {
+        top: 20px;
+        left: -23px;
+        width: 14px;
+        height: 14px;
+        border-color: var(--accent);
+        background: var(--accent-soft);
+      }
+
+      .timeline.compact li.major.current::before {
+        border-color: #76b900;
+        background: #76b900;
+        box-shadow: 0 0 0 4px rgba(118, 185, 0, 0.2);
+      }
+
+      .timeline.compact li.major .item-title {
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 1.4;
+      }
+
+      .timeline.compact li.major .item-title .nv {
+        color: var(--green);
+      }
+
+      .timeline.compact li.major .item-role {
+        display: block;
+        margin-top: 1px;
+        color: var(--accent-strong);
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .timeline.compact li.major .item-desc {
+        margin-top: 2px;
+        font-size: 14px;
+        color: var(--text-soft);
+      }
+
+      .timeline.compact li.major .date {
+        padding-top: 3px;
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--text-soft);
+      }
+
+      .timeline.compact li.major.current .date {
+        color: var(--green);
       }
 
       .info-table {
@@ -844,6 +924,14 @@
           grid-template-columns: 1fr;
           flex-direction: column;
           gap: 2px;
+        }
+
+        .timeline.compact li {
+          gap: 2px;
+        }
+
+        .timeline.compact li.major .date {
+          padding-top: 0;
         }
 
         .news-list li {
@@ -1188,11 +1276,12 @@
           <div class="section-header">
             <h2>Experience</h2>
           </div>
-          <ul class="timeline">
-            <li class="current">
+          <ul class="timeline compact">
+            <li class="major current">
               <div>
-                <span class="item-title">NVIDIA Research</span>
-                <span class="item-desc">Research Scientist working on efficient generative models with <a href="https://hanlab.mit.edu/songhan">Prof. Song Han</a></span>
+                <span class="item-title"><span class="nv">NVIDIA</span> Research</span>
+                <span class="item-role">Research Scientist</span>
+                <span class="item-desc">Working on efficient generative models with <a href="https://hanlab.mit.edu/songhan">Prof. Song Han</a></span>
               </div>
               <span class="date">Apr 2026 - Present</span>
             </li>
@@ -1210,10 +1299,18 @@
               </div>
               <span class="date">Nov 2023 - Jul 2024</span>
             </li>
+            <li class="major">
+              <div>
+                <span class="item-title">The Hong Kong University of Science and Technology (Guangzhou)</span>
+                <span class="item-role">Ph.D.</span>
+                <span class="item-desc">Advisor: <a href="https://www.yingcong.me/">Prof. Yingcong Chen</a></span>
+              </div>
+              <span class="date">2022 - 2026</span>
+            </li>
             <li>
               <div>
                 <span class="item-title">Smartmore</span>
-                <span class="item-desc">Full-time computer vision engineer working on tool-chains, manager: <a href="https://scholar.google.com/citations?user=BUEDUFkAAAAJ">Dr. Shu Liu</a></span>
+                <span class="item-desc">Computer Vision R&amp;D, working on tool-chains, manager: <a href="https://scholar.google.com/citations?user=BUEDUFkAAAAJ">Dr. Shu Liu</a></span>
               </div>
               <span class="date">Nov 2020 - Aug 2022</span>
             </li>
@@ -1237,6 +1334,14 @@
                 <span class="item-desc">Research Assistant</span>
               </div>
               <span class="date">Sep 2018 - Jun 2019</span>
+            </li>
+            <li class="major">
+              <div>
+                <span class="item-title">Beihang University</span>
+                <span class="item-role">B.Eng.</span>
+                <span class="item-desc">School of Computer Science and Engineering</span>
+              </div>
+              <span class="date">2016 - 2020</span>
             </li>
           </ul>
         </section>
